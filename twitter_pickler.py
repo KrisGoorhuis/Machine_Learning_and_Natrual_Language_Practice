@@ -153,4 +153,4 @@ voted_classifier = VoteClassifier(NaiveBayesClassifier,
 print("voted_classifier accuracy percent:", (nltk.classify.accuracy(voted_classifier, testing_set))*100)
 print("Classifier accuracy percent:", (nltk.classify.accuracy(NaiveBayesClassifier, testing_set))*100)
 # print(nltk.classify(testing_set))
-NaiveBayesClassifier.show_most_informative_features(50)       
+NaiveBayesClassifier.show_most_informative_features(500)       

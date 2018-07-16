@@ -4,6 +4,7 @@ import os
 import sys
 import nltk
 import random
+import statistics
 from nltk.corpus import movie_reviews
 from nltk.corpus import stopwords
 from nltk.classify.scikitlearn import SklearnClassifier
@@ -21,7 +22,7 @@ common_pickle.close()
 featuresetsPickle = open(os.path.join(sys.path[0], "pickles/featuresets.pickle"), "rb")
 featuresets = pickle.load(featuresetsPickle)
 featuresetsPickle.close()
-print("FEATURESETS LENGTH", len(featuresets))
+# print("FEATURESETS LENGTH", len(featuresets))
 
 ### Load portion of chunks
 # We trained with the first 5 of 10, so we'll start half way a test set of the remaining 5
@@ -80,7 +81,11 @@ class VoteClassifier(ClassifierI):
         for c in self._classifiers:
             vote = c.classify(feature_words)
             votes.append(vote)
-        return mode(votes)
+            
+            # if len(votes) % 2 != 0:
+            # print(len(votes) % 2 != 0)
+            return mode(votes)
+
     
     def confidence(self, features):
         votes = []
@@ -115,3 +120,5 @@ def find_features(tweet):
 def sentiment(text):
     feats = find_features(text)
     return voted_classifier.classify(feats), voted_classifier.confidence(feats)
+
+print("### Sentiment interpreter finished loading")
