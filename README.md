@@ -1,8 +1,9 @@
-# python_bot
+# Machine Learning and Natural Language Pickles
 
-This is all sorts of practice bits and loose threads built as Python practice, most of them about a tweet interpreter.
+This is all sorts of practice bits and loose threads built as Python practice, most of it to do with machines learning how to interpret English.
 
 So far it includes:
-    natural language analysis
+    natural language sentiment analysis
     pickling
-    tweet streaming
+    Twitter streaming and interpretation
+    some graphing
